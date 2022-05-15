@@ -47,3 +47,8 @@ func VerificaWebsites(vw VerificadorWebsite, urls []string) map[string]bool {
 // Dentro, estamos usando uma expressão de recebimento, que atribui um valor recebido por um canal a uma variável.
 // Essa expressão também usa o operador <-, mas com os dois operandos em posições invertidas:
 // o canal agora fica à direita e a variável que está recebendo o valor dele fica à esquerda.
+// Pontos importantes:
+// 1) goroutines, a unidade básica de concorrência em Go, que nos permite verificar mais do que um site ao mesmo tempo.
+// 2) funções anônimas, que usamos para iniciar cada um dos processos concorrentes que verificam os sites.
+// 3) canais, para nos ajudar a organizar e controlar a comunicação entre diferentes processos, nos permitindo evitar um bug de condição de corrida.
+// 4) o detector de corrida, que nos ajudou a desvendar problemas com código concorrente.
